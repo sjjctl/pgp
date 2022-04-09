@@ -5,20 +5,23 @@
 Summary
 =======
 
-If a key is revoked (compromised and removed from my GitHub), it will have a revocation date.
+If a key is revoked (or removed from my GitHub), it will have a revocation date.
 
-Keys will be listed in order of descending importance (frequency of use).  Revoked keys will be moved to the bottom.
+Keys will be listed in order of descending importance (frequency of use).
+Revoked keys will be moved to the bottom.
 
-+-----------+----------------------------------------------+-------------+----------+-----------------------------------------------+
-| protocol  | key_id                                       | created     | revoked  | name (comment) <email>                        |
-+===========+==============================================+=============+==========+===============================================+
-| ed25519   | 86A3DCDDD670D24EAFC2FDAB / D18E60568103C1CC  | 2022-04-07  |          | Shane J (coffeelake) <sjjctl@protonmail.com>  |
-+-----------+----------------------------------------------+-------------+----------+-----------------------------------------------+
++-----------+----------------------------------------------+-------------+----------+-------------------------------------------------------------+
+| protocol  | key_id                                       | created     | revoked  | name (comment) <email>                                      |
++===========+==============================================+=============+==========+=============================================================+
+| ed25519   | 86A3DCDDD670D24EAFC2FDAB / D18E60568103C1CC  | 2022-04-07  |          | Shane J (primary personal desktop) <sjjctl@protonmail.com>  |
++-----------+----------------------------------------------+-------------+----------+-------------------------------------------------------------+
+| ed25519   | A25B1F113CD2CA87DDECF660 / 497716DED33B4FE8  | 2022-04-09  |          | Shane J (Lumen's provided Mac) <sjjctl@protonmail.com>      |
++-----------+----------------------------------------------+-------------+----------+-------------------------------------------------------------+
 
 Importing
 =========
 
-Import my keys to your public keyring:
+Import my public keys to your keyring:
 
 .. code-block:: bash
 
@@ -41,7 +44,7 @@ Import my keys to your public keyring:
 Verifying
 =========
 
-My commits or contributions to any "CenturyLink Cloud" repo can then be verified.
+My commit signatures to "CenturyLink Cloud" repos can then be verified.
 
 Keys may be revoked at any time, if lost or compromised.
 
