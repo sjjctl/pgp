@@ -19,7 +19,7 @@ Import my public keys to your keyring:
 
 .. code-block:: bash
 
-    git clone git@github.com:gamesguru/pgp.git
+    git clone git@github.com:sjjctl/pgp.git
     ./pgp/import.sh
     rm -rf pgp
 
@@ -34,7 +34,7 @@ You may also wish to import the public GitHub webflow-key used to sign web commi
 Verifying
 =========
 
-My commit signatures to nutratech and any public repos can then be verified.
+My commit signatures to "CenturyLink Cloud" repos can then be verified.
 
 Keys may be retired at any time, if lost or compromised.
 
