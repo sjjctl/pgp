@@ -43,8 +43,22 @@ Import my public keys to your keyring:
     printf "\\n\e[1;31m%s\e[0m\\n" "gpg --import --armor $keys_str"
     gpg --import --armor $keys_str
 
+    # Sign with your existing trusted key
+    for key in ${keys[@]}; do
+        printf "\\n\e[1;31m%s\e[0m\\n" "gpg --sign-key $key"
+        gpg --sign-key $key
+    done
+
     cd ../..
     rm -rf pgp
+
+You may also wish to import the public GitHub webflow-key used to sign web commits:
+
+.. code-block:: bash
+
+    curl https://github.com/web-flow.gpg | gpg --import --armor
+    gpg --sign-key 4AEE18F83AFDEB23
+
 
 Verifying
 =========
