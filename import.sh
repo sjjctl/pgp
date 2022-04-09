@@ -4,7 +4,7 @@ cd $(dirname $0)
 cd keys
 
 # Build string list
-keys=("6DE67F6BAF8E633F" "497716DED33B4FE8")
+keys=("C0EC6A6F154821E6" "BFAB77B2CB228DC5")
 # retired_keys=("D18E60568103C1CC")  # nested in `keys/retired/` folder.. requires special loop
 keys_str=""
 for key in ${keys[@]}; do
