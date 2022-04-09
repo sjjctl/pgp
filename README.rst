@@ -19,9 +19,9 @@ Import my public keys to your keyring:
 
 .. code-block:: bash
 
-    git clone git@github.com:sjjctl/pgp.git
-    ./pgp/import.sh
-    rm -rf pgp
+    git clone git@github.com:sjjctl/pgp.git && cd pgp
+    ./import.sh
+    cd .. && rm -rf pgp
 
 You may also wish to import the public GitHub webflow-key used to sign web commits:
 
@@ -42,3 +42,12 @@ Keys may be retired at any time, if lost or compromised.
 
     git config --global alias.lgb "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset%n' --abbrev-commit --date=relative --branches"
     git --no-pager lgb --stat --show-signature
+
+Deleting
+========
+
+Public keys can be easily removed from your keyring:
+
+.. code-block:: bash
+
+    ./delete.sh
