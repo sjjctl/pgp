@@ -1,0 +1,1 @@
+1. What happens if we import with no primary key?  Does the `--sign-key` command hang, or impatiently pipe in bash input?
