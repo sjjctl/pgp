@@ -10,15 +10,7 @@ If a key is revoked (removed from this GitHub account), it will have a retired d
 Keys will be listed in order of descending importance (frequency of use).
 Retired keys will be moved to the bottom.
 
-+-----------+----------------------------------------------+-------------+-------------+-------------------------------------------------------------+
-| protocol  | key_id                                       | created     | retired     | name (comment) <email>                                      |
-+===========+==============================================+=============+=============+=============================================================+
-| ed25519   | B84FA10DB6406D614213D3F3 / 6DE67F6BAF8E633F  | 2022-04-09  |             | Shane J (primary personal desktop) <sjjctl@protonmail.com>  |
-+-----------+----------------------------------------------+-------------+-------------+-------------------------------------------------------------+
-| ed25519   | A25B1F113CD2CA87DDECF660 / 497716DED33B4FE8  | 2022-04-09  |             | Shane J (Lumen's provided Mac) <sjjctl@protonmail.com>      |
-+-----------+----------------------------------------------+-------------+-------------+-------------------------------------------------------------+
-| ed25519   | 86A3DCDDD670D24EAFC2FDAB / D18E60568103C1CC  | 2022-04-07  | 2022-04-09  | Shane J (primary personal desktop) <sjjctl@protonmail.com>  |
-+-----------+----------------------------------------------+-------------+-------------+-------------------------------------------------------------+
+See ``./keys_summary.csv`` for detail on all keys and retire dates.
 
 Importing
 =========
