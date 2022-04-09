@@ -5,10 +5,10 @@
 Summary
 =======
 
-If a key is revoked (or removed from my GitHub), it will have a revocation date.
+If a key is revoked (removed from this GitHub account), it will have a retired date.
 
 Keys will be listed in order of descending importance (frequency of use).
-Revoked keys will be moved to the bottom.
+Retired keys will be moved to the bottom.
 
 +-----------+----------------------------------------------+-------------+-------------+-------------------------------------------------------------+
 | protocol  | key_id                                       | created     | retired     | name (comment) <email>                                      |
@@ -44,7 +44,7 @@ Verifying
 
 My commit signatures to "CenturyLink Cloud" repos can then be verified.
 
-Keys may be revoked at any time, if lost or compromised.
+Keys may be retired at any time, if lost or compromised.
 
 .. code-block:: bash
 

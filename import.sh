@@ -4,7 +4,8 @@ cd $(dirname $0)
 cd keys
 
 # Build string list
-keys=("D18E60568103C1CC" "497716DED33B4FE8")
+keys=("6DE67F6BAF8E633F" "497716DED33B4FE8")
+# retired_keys=("D18E60568103C1CC")  # nested in `keys/retired/` folder.. requires special loop
 keys_str=""
 for key in ${keys[@]}; do
     keys_str="${keys_str} $key.pgp"
