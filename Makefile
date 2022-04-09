@@ -18,3 +18,7 @@ uninstall:
 
 list:
 	gpg --list-key shane.jaroch@centurylink.com sjjctl@protonmail.com mathmuncher11@gmail.com nutratracker@protonmail.com
+
+test:
+	git --no-pager lgb --show-signature
+
