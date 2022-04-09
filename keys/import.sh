@@ -10,8 +10,15 @@ else
     cd $1
 fi
 
-# Build string list
+# TODO: for loop to recurse into each `<dir>/` and `<dir>/retire/` ?
+
+# Exit if cwd has no *.pgp files
 keys=$(ls *.pgp)
+if [ -z "$keys" ]; then
+    exit
+fi
+
+# Build string list
 keys_str=""
 for key in ${keys[@]}; do
     keys_str="${keys_str} $key"
