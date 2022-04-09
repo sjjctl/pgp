@@ -10,16 +10,17 @@ If a key is revoked (removed from this GitHub account), it will have a retired d
 Keys will be listed in order of descending importance (frequency of use).
 Retired keys will be moved to the bottom.
 
-See ``./keys_summary.csv`` for detail on all keys and retire dates.
+See ``./summary_of_keys.csv`` for detail on all keys and retire dates.
 
 Importing
 =========
 
-Import my public keys to your keyring:
+Import my public keys to your keyring, and verify the list against my emails:
 
 .. code-block:: bash
 
-    ./import.sh
+    make install
+    make list
 
 You may also wish to import the public GitHub webflow-key used to sign web commits:
 
@@ -48,4 +49,4 @@ Public keys can be easily removed from your keyring:
 
 .. code-block:: bash
 
-    ./delete.sh
+    make uninstall
