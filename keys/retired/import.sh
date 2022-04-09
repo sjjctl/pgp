@@ -12,11 +12,13 @@ done
 keys_str=$(echo $keys_str|xargs)
 
 # Import keys
-printf "\\n\e[1;31m%s\e[0m\\n" "gpg --import --armor $keys_str"
-gpg --import --armor $keys_str
+printf "\\n\e[1;31m%s\e[0m\\n" "gpg --import --armor --yes $keys_str"
+gpg --import --armor --yes $keys_str
 
 # Sign with your existing trusted key
 for key in ${keys[@]}; do
-    printf "\\n\e[1;31m%s\e[0m\\n" "gpg --sign-key ${key%.*}"
-    gpg --sign-key ${key%.*}
+    fingerprints=$(gpg --fingerprint --with-colons "${key%.*}" | awk -F: '$1 == "fpr" {print $10;}')
+    IFS=' ' read -r -a fingerprint <<< "$fingerprints"
+    printf "\\n\e[1;31m%s\e[0m\\n" "gpg --quick-sign-key --yes $fingerprint"
+    gpg --quick-sign-key --yes $fingerprint
 done
