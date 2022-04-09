@@ -22,9 +22,18 @@ Import my keys to your public keyring:
 
 .. code-block:: bash
 
+    #!/bin/bash
+
     git clone git@github.com:sjjctl/pgp.git
     cd pgp/keys
-    gpg --import --armor D18E60568103C1CC.pgp
+
+    gpg --import --armor D18E60568103C1CC.pgp 497716DED33B4FE8.pgp
+
+    keys=("D18E60568103C1CC" "497716DED33B4FE8")
+    for key in ${keys[@]}; do
+        printf "\\n\e[1;31m%s\e[0m\\n" "gpg --sign-key $key"
+        gpg --sign-key $key
+    done
 
     cd ../..
     rm -rf pgp
