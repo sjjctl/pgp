@@ -4,7 +4,7 @@ cd $(dirname $0)
 cd keys
 
 # Build string list
-keys=("BFAB77B2CB228DC5" "C0EC6A6F154821E6")
+keys=("D18E60568103C1CC" "497716DED33B4FE8")
 keys_str=""
 for key in ${keys[@]}; do
     keys_str="${keys_str} $key.pgp"
