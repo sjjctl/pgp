@@ -1,5 +1,3 @@
 protocol,key_id,created,retired,name (comment) <email>
-ed25519,B84FA10DB6406D614213D3F3 / 6DE67F6BAF8E633F,2022-04-09,,Shane J (primary personal desktop) <sjjctl@protonmail.com>
-ed25519,A25B1F113CD2CA87DDECF660 / 497716DED33B4FE8,2022-04-09,,Shane J (Lumen's provided Mac) <sjjctl@protonmail.com>
-ed25519,86A3DCDDD670D24EAFC2FDAB / D18E60568103C1CC,2022-04-07,2022-04-09,Shane J (primary personal desktop) <sjjctl@protonmail.com>
-ed25519,82803B36AAD6B62C30914B07 / D34105F143A10668,2021-02-10,2022-01-01,Shane Jaroch <shane.jaroch@centurylink.com>
+ed25519,2BF79569526D9761EE581A79 / BFAB77B2CB228DC5,2022-04-09,,Shane J (coffeelake) <nutratracker@protonmail.com>
+ed25519,5400C3E119A160130B0143B3 / C0EC6A6F154821E6,2020-02-10,2022-04-09,Shane J (coffeelake) <mathmuncher11@gmail.com>

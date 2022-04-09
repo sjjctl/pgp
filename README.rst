@@ -34,7 +34,7 @@ You may also wish to import the public GitHub webflow-key used to sign web commi
 Verifying
 =========
 
-My commit signatures to "CenturyLink Cloud" repos can then be verified.
+My commit signatures can then be verified.
 
 Keys may be retired at any time, if lost or compromised.
 
