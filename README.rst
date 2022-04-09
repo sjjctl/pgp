@@ -37,10 +37,12 @@ My commit signatures can then be verified.
 
 Keys may be retired at any time, if lost or compromised.
 
+NOTE: You may need to configure the ``git lgb`` alias before running ``make test``.
+
 .. code-block:: bash
 
     git config --global alias.lgb "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset%n' --abbrev-commit --date=relative --branches"
-    git --no-pager lgb --stat --show-signature
+    make test
 
 Deleting
 ========
