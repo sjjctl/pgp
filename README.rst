@@ -15,7 +15,9 @@ See ``./summary_of_keys.csv`` for detail on all keys and retire dates.
 Importing
 =========
 
-Import my public keys to your keyring, and verify the list against my emails:
+Import my public keys to your keyring, and verify the list against my emails.
+
+NOTE: You may be prompted to sign with an existing key.
 
 .. code-block:: bash
 
@@ -26,7 +28,7 @@ You may also wish to import the public GitHub webflow-key used to sign web commi
 
 .. code-block:: bash
 
-    curl https://github.com/web-flow.gpg | gpg --import --armor
+    curl https://github.com/web-flow.gpg | gpg --import
     gpg --sign-key 4AEE18F83AFDEB23
 
 
@@ -37,11 +39,8 @@ My commit signatures can then be verified.
 
 Keys may be retired at any time, if lost or compromised.
 
-NOTE: You may need to configure the ``git lgb`` alias before running ``make test``.
-
 .. code-block:: bash
 
-    git config --global alias.lgb "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset%n' --abbrev-commit --date=relative --branches"
     make test
 
 Deleting
