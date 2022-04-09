@@ -19,7 +19,7 @@ Import my public keys to your keyring:
 
 .. code-block:: bash
 
-    git clone git@github.com:sjjctl/pgp.git && cd pgp
+    git clone git@github.com:gamesguru/pgp.git && cd pgp
     ./import.sh
     cd .. && rm -rf pgp
 
