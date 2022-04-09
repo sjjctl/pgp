@@ -7,6 +7,6 @@ cd $(dirname $0)
 keys=$(ls *.pgp)
 for key in ${keys[@]}; do
     # Delete key
-    printf "\\n\e[1;31m%s\e[0m\\n" "gpg --delete-keys ${key%.*}"
-    gpg --delete-keys "${key%.*}"
+    printf "\\n\e[1;31m%s\e[0m\\n" "gpg --delete-keys --yes ${key%.*}"
+    gpg --delete-keys --yes "${key%.*}"
 done
