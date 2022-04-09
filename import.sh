@@ -1,5 +1,5 @@
 #!/bin/bash
 
 ./keys/import.sh
-./keys/retired/import.sh
+./keys/import.sh retired
 
