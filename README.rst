@@ -19,9 +19,7 @@ Import my public keys to your keyring:
 
 .. code-block:: bash
 
-    git clone git@github.com:gamesguru/pgp.git && cd pgp
     ./import.sh
-    cd .. && rm -rf pgp
 
 You may also wish to import the public GitHub webflow-key used to sign web commits:
 
