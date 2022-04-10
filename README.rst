@@ -29,7 +29,7 @@ You may also wish to import the public GitHub webflow-key used to sign web commi
 .. code-block:: bash
 
     curl https://github.com/web-flow.gpg | gpg --import
-    gpg --sign-key 4AEE18F83AFDEB23
+    gpg --lsign-key 4AEE18F83AFDEB23
 
 
 Verifying
