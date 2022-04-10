@@ -22,3 +22,6 @@ list:
 test:
 	clear
 	git --no-pager log --branches --graph --abbrev-commit --show-signature
+
+# sign:
+# 	- @echo ""; ./keys/sign.sh
