@@ -12,8 +12,8 @@ fi
 
 # TODO: for loop to recurse into each `<dir>/` and `<dir>/retire/` ?
 
-# Exit if cwd has no *.pgp files
-keys=$(ls *.pgp)
+# Exit if cwd has no *.asc files
+keys=$(ls *.asc)
 if [ -z "$keys" ]; then
     exit
 fi

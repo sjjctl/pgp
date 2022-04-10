@@ -10,8 +10,8 @@ else
     cd $1
 fi
 
-# Exit if cwd has no *.pgp files
-keys=$(ls *.pgp)
+# Exit if cwd has no *.asc files
+keys=$(ls *.asc)
 if [ -z "$keys" ]; then
     exit
 fi
