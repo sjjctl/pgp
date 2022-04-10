@@ -19,6 +19,10 @@ Import my public keys to your keyring, and verify the list against my emails.
 
 NOTE: You may be prompted to sign with an existing key.
 
+If you don't have one, create one with ``gpg2 --expert --full-gen-key``.
+
+Sign your main key as ultimately trusted (5) with ``gpg2 --edit-key <key_id>``.
+
 .. code-block:: bash
 
     make install
