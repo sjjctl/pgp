@@ -1,27 +1,17 @@
 .DEFAULT_GOAL := init
 
 install:
-	@echo ""; ./keys/import.sh personal/
-	@echo ""; ./keys/import.sh personal/retired/
-	@echo ""; ./keys/import.sh shared/
-	@echo ""; ./keys/import.sh shared/retired/
-	@echo ""; ./keys/import.sh work/
-	@echo ""; ./keys/import.sh work/retired/
+	@echo ""; ./import.sh
 
 uninstall:
-	- @echo ""; ./keys/delete.sh personal/
-	- @echo ""; ./keys/delete.sh personal/retired/
-	- @echo ""; ./keys/delete.sh shared/
-	- @echo ""; ./keys/delete.sh shared/retired/
-	- @echo ""; ./keys/delete.sh work/
-	- @echo ""; ./keys/delete.sh work/retired/
+	@echo ""; ./delete.sh
 
 list:
-	gpg --list-key shane.jaroch@centurylink.com sjjctl@protonmail.com mathmuncher11@gmail.com nutratracker@protonmail.com
+	gpg --list-key shane.jaroch@centurylink.com sjjctl@protonmail.com sjj.lumen@gmail.com mathmuncher11@gmail.com nutratracker@protonmail.com nutratracker@gmail.com
 
 test:
 	clear
 	git --no-pager log --branches --graph --abbrev-commit --show-signature
 
 # sign:
-# 	- @echo ""; ./keys/sign.sh
+# 	- @echo ""; ./sign.sh

@@ -2,25 +2,23 @@
 
 cd $(dirname $0)
 
-if [ -z "$1" ]; then
-    :
-    # No subdirectory passed in
-else
-    printf "\\n\e[1;31m%s\e[0m\\n" "cd $1"
-    cd $1
-fi
+dirs=$(find -type d \( ! -name . ! -name .git \) -not -path "./.git/*")
 
-# TODO: for loop to recurse into each `<dir>/` and `<dir>/retire/` ?
+for dir in ${dirs[@]}; do
+    echo $dir
 
-# Exit if cwd has no *.asc files
-keys=$(ls *.asc)
-if [ -z "$keys" ]; then
-    exit
-fi
+    keys=$(ls $dir/*.asc)
+    echo $keys
 
-# Build string list
-for key in ${keys[@]}; do
-    # Delete key
-    printf "\\n\e[1;31m%s\e[0m\\n" "gpg --batch --delete-keys --yes ${key%.*}"
-    gpg --batch --delete-keys --yes "${key%.*}"
+    # Skip empty directories
+    if [ -z "$keys" ]; then
+        continue
+    fi
+
+    # Delete keys
+    for key in ${keys[@]}; do
+        key=$(basename "$key")
+        printf "\\n\e[1;31m%s\e[0m\\n" "gpg --batch --delete-keys --yes ${key%.*}"
+        gpg --batch --delete-keys --yes "${key%.*}"
+    done
 done
