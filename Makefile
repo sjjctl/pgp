@@ -7,7 +7,7 @@ uninstall:
 	@echo ""; ./delete.sh
 
 list:
-	gpg --list-key shane.jaroch@centurylink.com sjjctl@protonmail.com sjj.lumen@gmail.com mathmuncher11@gmail.com nutratracker@protonmail.com nutratracker@gmail.com
+	gpg --list-key --keyid-format LONG shane.jaroch@centurylink.com sjjctl@protonmail.com sjj.lumen@gmail.com mathmuncher11@gmail.com nutratracker@protonmail.com nutratracker@gmail.com
 
 test:
 	clear
