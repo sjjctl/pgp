@@ -35,6 +35,16 @@ You may also wish to import the public GitHub webflow-key used to sign web commi
     curl https://github.com/web-flow.gpg | gpg --import
     gpg --lsign-key 4AEE18F83AFDEB23
 
+You can also import my SIGNING keys this way. Encryption keys must be added manually.
+
+They can be uninstalled just as easily:
+
+.. code-block:: bash
+
+    curl https://github.com/sjjctl.gpg | gpg --import
+    curl https://github.com/gamesguru.gpg | gpg --import
+
+    make uninstall
 
 Verifying
 =========
