@@ -1,7 +1,7 @@
 .DEFAULT_GOAL := install
 
 install:
-	@echo ""; ./script/import.sh work personal retired
+	@echo ""; ./scripts/import.sh work personal retired
 
 uninstall:
 	@echo ""; ./scripts/delete.sh work personal retired

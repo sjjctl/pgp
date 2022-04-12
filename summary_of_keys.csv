@@ -1,6 +1,7 @@
 protocol,usage,key_id,created,retired,name (comment) <email>
 ed25519,[SC],1085B4D08C7FE16143EE4495 / 05AF99BE3401F23B,2022-04-10,,Shane J (signing key - MacBook [work/Lumen])
 ed25519,[SC],A6BADBB9107C3296555B3EF5 / 6AA744E0F0606EA2,2022-04-10,,Shane J (signing key - coffeelake [work/Lumen])
+ed25519,[SC],A06BF95ACE48967A1B5065A6 / E9C3E30EA7E4DB66,2022-04-12,,gamesguru (signing key - MacBook [personal])
 ed25519,[SC],96C689846A9F704D633C98F7 / C6CC1A332E6DF976,2022-04-10,,gamesguru (signing key - coffeelake [personal])
 ed25519,[SC] [E],A25B1F113CD2CA87DDECF660 / 497716DED33B4FE8,2022-04-09,2022-04-10,Shane J (RETIRED MacBook [work/Lumen]) <sjjctl@protonmail.com>
 ed25519,[SC] [E],2BF79569526D9761EE581A79 / BFAB77B2CB228DC5,2022-04-09,2022-04-10,gamesguru (retired coffeelake [personal]) <nutratracker@protonmail.com>
