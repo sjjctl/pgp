@@ -1,4 +1,4 @@
-.DEFAULT_GOAL := init
+.DEFAULT_GOAL := install
 
 install:
 	@echo ""; ./import.sh
