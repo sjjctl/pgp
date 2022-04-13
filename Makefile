@@ -16,9 +16,10 @@ rmcrypt:
 	@echo ""; ./scripts/delete.sh shared/encrypt
 
 
+sign:
+	@echo ""; ./scripts/sign.sh work personal shared/encrypt retired
+
+
 test:
 	clear
 	git --no-pager log --branches --graph --abbrev-commit --show-signature
-
-# sign:
-# 	- @echo ""; ./sign.sh
