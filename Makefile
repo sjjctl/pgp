@@ -1,23 +1,23 @@
 .DEFAULT_GOAL := install
 
 install:
-	./scripts/import.sh work personal retired
+	./scripts/import.sh keys/sign keys/retired
 
 uninstall:
-	./scripts/delete.sh work personal retired
+	./scripts/delete.sh keys/sign keys/retired
 
 list:
-	gpg --list-key --keyid-format LONG shane.jaroch@centurylink.com shane.jaroch@lumen.com sjjctl@protonmail.com sjj.lumen@gmail.com mathmuncher11@gmail.com nutratracker@protonmail.com nutratracker@gmail.com bitcommander@zoho.com
+	gpg --list-key --keyid-format LONG $(shell find keys/ -name *.asc -printf "%f\n"| cut -d"." -f1)
 
 crypt:
-	./scripts/import.sh encrypt
+	./scripts/import.sh keys/encrypt
 
 rmcrypt:
-	./scripts/delete.sh encrypt
+	./scripts/delete.sh keys/encrypt
 
 
 sign:
-	./scripts/sign.sh work personal encrypt retired
+	./scripts/sign.sh keys/sign keys/encrypt keys/retired
 
 
 test:
