@@ -12,48 +12,60 @@ Retired keys will be moved to the bottom.
 
 See ``./summary_of_keys.csv`` for detail on all keys and retire dates.
 
-Importing
-=========
-
-Import my public keys to your keyring, and verify the list against my emails.
-
 NOTE: You may be prompted to sign with an existing key.
 
 If you don't have one, create one with ``gpg2 --expert --full-gen-key``.
 
+In the  ``scripts/`` folder, you can also use ``gpg-generate-rsa4096-encryption.sh``, or  ``gpg-generate-ed25519-signing.sh``.
+
 Save your main key as ultimately trusted (5) with ``gpg2 --edit-key <key_id>``, ``trust``, ``5``, ``save``.
 
-.. code-block:: bash
+Importing
+=========
 
-    make install
-    make list
-
-You may also wish to import the public GitHub webflow-key used to sign web commits:
+You may wish to first import the public GitHub webflow-key used to sign web commits:
 
 .. code-block:: bash
 
     curl https://github.com/web-flow.gpg | gpg --import
     gpg --lsign-key 4AEE18F83AFDEB23
 
-You can also import my SIGNING keys this way. Encryption keys must be added manually.
+Import my **signing keys** to your keyring, and sign them as trusted:
 
-They can be uninstalled just as easily:
+.. code-block:: bash
+
+    make
+    make list
+    make sign
+
+Or import from GitHub:
 
 .. code-block:: bash
 
     curl https://github.com/sjjctl.gpg | gpg --import
     curl https://github.com/gamesguru.gpg | gpg --import
 
+They can be removed just as easily:
+
+.. code-block:: bash
+
     make uninstall
+
+You can also add my **encryption** keys:
+
+.. code-block:: bash
+
+    make crypt
+    make rmcrypt  # to remove
 
 Verifying
 =========
 
-My commit signatures can then be verified.
+My commit signatures can then be verified (``git show --show-signature``, ``git log --show-signature``, etc).
 
 Keys may be retired at any time, if lost or compromised.
 
-.. code-block:: bash
+::
 
     make test
 
@@ -65,3 +77,4 @@ Public keys can be easily removed from your keyring:
 .. code-block:: bash
 
     make uninstall
+    make rmcrypt
