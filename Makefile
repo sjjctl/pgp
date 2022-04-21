@@ -1,25 +1,24 @@
 .DEFAULT_GOAL := install
 
 install:
-	@echo ""; ./scripts/import.sh work personal retired
+	./scripts/import.sh work personal retired
 
 uninstall:
-	@echo ""; ./scripts/delete.sh work personal retired
+	./scripts/delete.sh work personal retired
 
 list:
-	gpg --list-key --keyid-format LONG shane.jaroch@centurylink.com shane.jaroch@lumen.com sjjctl@protonmail.com sjj.lumen@gmail.com mathmuncher11@gmail.com nutratracker@protonmail.com nutratracker@gmail.com
+	gpg --list-key --keyid-format LONG shane.jaroch@centurylink.com shane.jaroch@lumen.com sjjctl@protonmail.com sjj.lumen@gmail.com mathmuncher11@gmail.com nutratracker@protonmail.com nutratracker@gmail.com bitcommander@zoho.com
 
 crypt:
-	@echo ""; ./scripts/import.sh shared/encrypt
+	./scripts/import.sh encrypt
 
 rmcrypt:
-	@echo ""; ./scripts/delete.sh shared/encrypt
+	./scripts/delete.sh encrypt
 
 
 sign:
-	@echo ""; ./scripts/sign.sh work personal shared/encrypt retired
+	./scripts/sign.sh work personal encrypt retired
 
 
 test:
-	clear
-	git --no-pager log --branches --graph --abbrev-commit --show-signature
+	git log --branches --graph --abbrev-commit --show-signature
