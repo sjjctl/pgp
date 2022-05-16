@@ -1,5 +1,7 @@
+#!/bin/bash
+
 cat <<EOT >batch-cmds
-%echo Generating a default key
+%echo Generating an ed25519 signing key
 # %no-protection
 Key-Type: EDDSA
 Key-Curve: ed25519
@@ -15,5 +17,7 @@ Passphrase: ???
 %commit
 %echo done
 EOT
+
 gpg --batch --gen-key batch-cmds
 gpg --keyid-format long ed25519.pub
+

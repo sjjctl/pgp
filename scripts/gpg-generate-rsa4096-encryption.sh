@@ -1,5 +1,7 @@
+#!/bin/bash
+
 cat <<EOT >batch-cmds
-%echo Generating a default key
+%echo Generating an RSA encryption key
 # %no-protection
 Key-Type: RSA
 Key-Length: 4096
@@ -15,5 +17,7 @@ Passphrase: ???
 %commit
 %echo done
 EOT
+
 gpg --batch --gen-key batch-cmds
 gpg --keyid-format long rsa.pub
+
