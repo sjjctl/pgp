@@ -75,6 +75,24 @@ Keys may be retired at any time, if lost or compromised.
 
     make test
 
+You may find the following git alias useful.
+
+::
+
+    git config --global alias.lgb "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%aN>%Creset%n' --abbrev-commit --date=relative --branches"
+
+Note that replacing ``%an`` with ``%aN`` and
+``%ae`` with ``%aE`` is what tells git to respect
+the ``.mailmap`` file, if it exists.  You can
+configure a separate alias for ignoring the mailmap
+and showing real names. Both git log and git show should
+respect the mailmap by default.
+
+::
+
+    git config --global alias.lgbn = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an <%ae>%Creset%n' --abbrev-commit --date=relative
+
+
 Deleting
 ========
 
