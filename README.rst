@@ -28,19 +28,18 @@ Importing
 =========
 
 You may wish to first import the public GitHub webflow-key
-used to sign web commits:
+used to sign web commits.
 
 .. code-block:: bash
 
     curl https://github.com/web-flow.gpg | gpg --import
     gpg --lsign-key 4AEE18F83AFDEB23
 
-Import my **signing keys** to your keyring, and sign them as trusted:
+Import my **signing keys** to your keyring, and sign them as trusted.
 
 .. code-block:: bash
 
-    make
-    make list
+    make install
     make sign
 
 Or import from GitHub.

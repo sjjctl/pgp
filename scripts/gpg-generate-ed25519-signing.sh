@@ -20,4 +20,3 @@ EOT
 
 gpg --batch --gen-key batch-cmds
 gpg --keyid-format long ed25519.pub
-
