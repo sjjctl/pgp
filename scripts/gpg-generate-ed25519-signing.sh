@@ -8,7 +8,7 @@ Key-Curve: ed25519
 Key-Usage: sign
 Name-Real: ???
 Name-Comment: signing key - ??? [???]
-Name-Email: ???
+# Name-Email: ???
 Expire-Date: 0
 Passphrase: ???
 %pubring ed25519.pub
