@@ -42,10 +42,7 @@ Import my **signing keys** to your keyring, and sign them as trusted.
     make install
     make sign
 
-Or import from GitHub.
-
-.. code-block:: bash
-
+    # or, import from GitHub
     curl https://github.com/sjjctl.gpg | gpg --import
     curl https://github.com/gamesguru.gpg | gpg --import
 
@@ -54,6 +51,10 @@ They can be removed just as easily.
 .. code-block:: bash
 
     make uninstall
+
+    # or, delete based on GitHub
+    curl https://github.com/sjjctl.gpg | gpg | grep '^ ' | gpg --batch --delete-keys --yes
+    curl https://github.com/gamesguru.gpg | gpg | grep '^ ' | gpg --batch --delete-keys --yes
 
 You can also add my **encryption** keys.
 
