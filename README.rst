@@ -79,7 +79,7 @@ You may find the following git alias useful.
 
 ::
 
-    git config --global alias.lgb "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%aN>%Creset%n' --abbrev-commit --date=relative --branches"
+    git config --global alias.lgb "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%aN>%Creset%n' --abbrev-commit --date=relative"
 
 Note that replacing ``%an`` with ``%aN`` and
 ``%ae`` with ``%aE`` is what tells git to respect
