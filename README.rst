@@ -110,59 +110,21 @@ I like to start my work keys with a number, and my personal keys
 with a letter.  Automating the generation process can help take
 the labor out of ensuring such a standard.
 
-Uncomment the ``%no-protection`` line for faster key generation.
+Run the below script(s) for generating key(s).
 
-Here are shell scripts for creating signing keys.
+.. code-block:: text
 
-.. code-block:: shell
+    scripts/
+    ├── gpg-generate-ed25519-signing.sh
+    ├── gpg-generate-rsa4096-encryption.sh
 
-    #!/bin/bash
+**NOTE:** Remove the ``%no-protection`` comment for faster key generation
+(for testing purposes only, do not use insecure keys in production).
 
-    cat <<EOT >batch-cmds
-    %echo Generating an ed25519 signing key
-    # %no-protection
-    Key-Type: EDDSA
-    Key-Curve: ed25519
-    Key-Usage: sign
-    Name-Real: ???
-    Name-Comment: signing key - ??? [???]
-    Name-Email: ???
-    Expire-Date: 0
-    Passphrase: ???
-    %pubring ed25519.pub
-    # %secring foo.sec  # no-op as of v2.1
-    # Do a commit here, so that we can later print "done" :-)
-    %commit
-    %echo done
-    EOT
+Then import, edit and run: ``passwd`` as well as ``adduid``, ``primary``,
+``trust``, and finally ``save``.
 
-    gpg --batch --gen-key batch-cmds
-    gpg --keyid-format long ed25519.pub
+.. code-block:: text
 
-
-And for encryption keys.
-
-.. code-block:: shell
-
-    #!/bin/bash
-
-    cat <<EOT >batch-cmds
-    %echo Generating an RSA encryption key
-    # %no-protection
-    Key-Type: RSA
-    Key-Length: 4096
-    Key-Usage: encrypt
-    Name-Real: ???
-    Name-Comment: encryption key - ??? [???]
-    Name-Email: ???
-    Expire-Date: 0
-    Passphrase: ???
-    %pubring rsa.pub
-    # %secring foo.sec  # no-op as of v2.1
-    # Do a commit here, so that we can later print "done" :-)
-    %commit
-    %echo done
-    EOT
-
-    gpg --batch --gen-key batch-cmds
-    gpg --keyid-format long rsa.pub
+    gpg --import ed25519.pub
+    gpg --edit-key <KEY_ID>
