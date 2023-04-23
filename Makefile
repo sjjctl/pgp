@@ -82,7 +82,12 @@ test:	## Do a self test using git log --show-signature
 
 .PHONY: check/only-self-sigs
 check/only-self-sigs:
+	# Test local keys (in git repository)
 	@for key in $(shell find keys/ -name *.asc); do gpg --import --dry-run $$key; done
+	# Test keys on GitHub GPG store
+	curl https://github.com/sjjctl.gpg | gpg --import --dry-run
+	curl https://github.com/gamesguru.gpg | gpg --import --dry-run
+
 
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
