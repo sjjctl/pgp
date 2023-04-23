@@ -51,6 +51,9 @@ rmcrypt:	## Remove encryption keys
 
 .PHONY: github/install
 github/install:
+	# Import GitHub web-flow signing key
+	curl https://github.com/web-flow.gpg | gpg --import
+	# Import my keys
 	curl https://github.com/sjjctl.gpg | gpg --import
 	curl https://github.com/gamesguru.gpg | gpg --import
 
