@@ -1,0 +1,42 @@
+---
+name: test
+
+"on": push
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: [ubuntu-latest]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
+
+      - name: Import Github web-flow Key
+        run: |
+          curl https://github.com/web-flow.gpg | gpg --import
+          # gpg --lsign-key 4AEE18F83AFDEB23
+
+
+      # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      # Test (local GPG)
+      # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      - name: Check duplicates / missing keys [superfluous signatures]
+        run: |
+          SIGS=$(make check/only-self-sigs 2>&1)
+          echo "$SIGS"
+          SUP_SIGS=$(echo "$SIGS" | grep "signatures not checked due to missing keys" | wc -l)
+          [ $SUP_SIGS = 0 ]
+
+      - name: Install (local)
+        run: make install
+
+      - name: Install (GitHub GPG) [Check for matching signatures]
+        run: make github/install
+
+      - name: Remove (local)
+        run: make uninstall

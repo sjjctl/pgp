@@ -80,6 +80,10 @@ github/uninstall:
 test:	## Do a self test using git log --show-signature
 	git log --branches --graph --abbrev-commit --show-signature
 
+.PHONY: check/only-self-sigs
+check/only-self-sigs:
+	@for key in $(shell find keys/ -name *.asc); do gpg --import --dry-run $$key; done
+
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ##	------------------------------------------------------
