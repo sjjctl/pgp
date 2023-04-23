@@ -49,6 +49,30 @@ rmcrypt:	## Remove encryption keys
 	./scripts/delete.sh keys/encrypt
 
 
+.PHONY: github/install
+github/install:
+	curl https://github.com/sjjctl.gpg | gpg --import
+	curl https://github.com/gamesguru.gpg | gpg --import
+
+KEYS_WORK_GH_RM ?= $(shell curl https://github.com/sjjctl.gpg | gpg | grep '^ ')
+KEYS_HOME_GH_RM ?= $(shell curl https://github.com/gamesguru.gpg | gpg | grep '^ ')
+
+.PHONY: github/uninstall
+github/uninstall:
+	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	# Remove work keys
+	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	@-for key in ${KEYS_WORK_GH_RM}; \
+	    do gpg --batch --delete-keys --yes $$key; \
+	done
+	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	# Remove home (personal) keys
+	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	@-for key in ${KEYS_HOME_GH_RM}; \
+	    do gpg --batch --delete-keys --yes $$key; \
+	done
+
+
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Test and extras
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
