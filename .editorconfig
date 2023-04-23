@@ -24,6 +24,10 @@ max_line_length = 120
 max_line_length = 79
 
 
+[*.{yaml,yml}]
+indent_size = 2
+
+
 [{COMMIT_EDITMSG,MERGE_MSG,SQUASH_MSG,git-rebase-todo}]
 max_line_length = 72
 
