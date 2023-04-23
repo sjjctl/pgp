@@ -25,7 +25,10 @@ list:	## List the keys in this repository
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .PHONY: install
 install:	## Import my signing keys
-	./scripts/import.sh keys/sign keys/retired
+	./scripts/import.sh \
+	    keys/sign/personal \
+	    keys/sign/work \
+	    keys/retired
 
 .PHONY: crypt
 crypt:	## Import my encryption keys
