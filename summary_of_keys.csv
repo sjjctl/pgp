@@ -1,6 +1,6 @@
 protocol,usage,key_id,created,retired,name (comment) <email>
-ed25519,[SC],907A3911021493013425B8CC / CBA0B64DE064138A,2023-04-21,,Shane (signing key - MacBook [home])
-ed25519,[SC],27EB3234BBAA582F939A7FEE / 239637B00714AB68,2023-04-21,,Shane (signing key - MacBook [work])
+ed25519,[SC],907A3911021493013425B8CC / CBA0B64DE064138A,2023-04-21,,Shane J (signing key - MacBook [home])
+ed25519,[SC],27EB3234BBAA582F939A7FEE / 239637B00714AB68,2023-04-21,,Shane J (signing key - MacBook [work])
 ed25519,[SC],705F63B0B0AAC205950BCD0B / ABB5A7473B8CA498,2023-04-19,,Shane J (signing key - Laptop [home])
 ed25519,[SC],BC2D6B5A080EAF964F246836 / 16165097ABC23C20,2023-04-19,,Shane J (signing key - Laptop [work])
 ed25519,[SC],40E65961E092F75E310FC413 / CFEF3F07F7078944,2023-04-06,,Shane J (signing key - Desktop [home])
