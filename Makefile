@@ -26,8 +26,8 @@ list:	## List the keys in this repository
 .PHONY: install
 install:	## Import my signing keys
 	./scripts/import.sh \
-	    keys/sign/personal \
-	    keys/sign/work \
+	    keys/active/personal \
+	    keys/active/work \
 	    keys/retired
 
 .PHONY: crypt
@@ -37,12 +37,12 @@ crypt:	## Import my encryption keys
 
 .PHONY: sign
 sign:	## Locally sign my keys
-	./scripts/sign.sh keys/sign keys/encrypt keys/retired
+	./scripts/sign.sh keys/active keys/encrypt keys/retired
 
 
 .PHONY: uninstall
 uninstall:	## Remove signing keys
-	./scripts/delete.sh keys/sign keys/retired
+	./scripts/delete.sh keys/active keys/retired
 
 .PHONY: rmcrypt
 rmcrypt:	## Remove encryption keys
