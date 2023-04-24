@@ -33,7 +33,7 @@ jobs:
           [ $SUP_SIGS = 0 ]
 
       - name: Install (local)
-        run: make install
+        run: make install install-retired
 
       - name: Install (GitHub GPG) [Check for matching signatures]
         run: make github/install
