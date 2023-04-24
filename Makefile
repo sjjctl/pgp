@@ -23,6 +23,7 @@ list:	## List the keys in this repository
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Install, sign, & remove
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# TODO: shortcut to only install current keys? Organize retired keys by year of retirement?
 .PHONY: install
 install:	## Import my signing keys
 	./scripts/import.sh \
@@ -47,8 +48,8 @@ github/install:	## Install my keys (based on GitHub GPG)
 	curl https://github.com/sjjctl.gpg | gpg --import
 	curl https://github.com/gamesguru.gpg | gpg --import
 
-KEYS_WORK_GH_RM ?= $(shell curl https://github.com/sjjctl.gpg | gpg --import --dry-run --import-options show-only | grep '^ ')
-KEYS_HOME_GH_RM ?= $(shell curl https://github.com/gamesguru.gpg | gpg --import --dry-run --import-options show-only | grep '^ ')
+KEYS_WORK_GH_RM ?= $(shell curl https://github.com/sjjctl.gpg | gpg --show-keys | grep '^ ')
+KEYS_HOME_GH_RM ?= $(shell curl https://github.com/gamesguru.gpg | gpg --show-keys | grep '^ ')
 
 .PHONY: github/uninstall
 github/uninstall:	## Uninstall my keys (based on GitHub GPG)
