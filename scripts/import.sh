@@ -7,9 +7,10 @@ dirs=$@
 
 # Loop over each directory
 for dir in ${dirs}; do
-	echo $dir
-	# Find keys in that directory
-	keys=$(find $dir -name *.asc)
+	# TODO: check if directory exists, before trying to find keys in it?
+	printf "\n\e[1;32m$dir\e[0m\n"
+	# Find keys in that directory (in alphabetical order)
+	keys=$(find $dir -name *.asc | sort -h)
 	# Import keys
-	gpg --import --armor --yes $keys
+	if [ "$keys" ]; then gpg --import --armor --yes $keys; fi
 done

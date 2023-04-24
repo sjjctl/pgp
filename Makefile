@@ -24,28 +24,50 @@ list:	## List the keys in this repository
 # Install, sign, & remove
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .PHONY: install
-install:	## Import my signing keys
+install:	## Import my current signing keys
+	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	# Import current keys
+	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	./scripts/import.sh \
 	    keys/active/personal \
 	    keys/active/work
+	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	# Import deprecated  keys
+	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	./scripts/import.sh \
+	    keys/deprecated/personal \
+	    keys/deprecated/work
 
 # TODO: Organize retired keys by year of retirement?
-.PHONY: install-retired
-install-retired:
+.PHONY: retired
+retired:	## Install my retired signing keys
+	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	# Import retired keys
+	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	./scripts/import.sh \
-	    keys/retired
+	    keys/retired/personal \
+	    keys/retired/work
 
 .PHONY: sign
 sign:	## Locally sign my keys
+	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	# Sign all keys
+	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	./scripts/sign.sh keys/active keys/retired
 
 .PHONY: uninstall
 uninstall:	## Remove signing keys
+	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	# Remove all keys
+	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	./scripts/delete.sh keys/active keys/retired
 
 
 .PHONY: github/install
 github/install:	## Install my keys (based on GitHub GPG)
+	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	# Import GitHub keys
+	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	# Import GitHub web-flow signing key
 	curl https://github.com/web-flow.gpg | gpg --import
 	# Import my keys
@@ -58,13 +80,13 @@ KEYS_HOME_GH_RM ?= $(shell curl https://github.com/gamesguru.gpg | gpg --show-ke
 .PHONY: github/uninstall
 github/uninstall:	## Uninstall my keys (based on GitHub GPG)
 	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	# Remove work keys
+	# Remove GitHub keys (work)
 	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	@-for key in ${KEYS_WORK_GH_RM}; \
 	    do gpg --batch --delete-keys --yes $$key; \
 	done
 	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	# Remove home (personal) keys
+	# Remove GitHub keys (home/personal)
 	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	@-for key in ${KEYS_HOME_GH_RM}; \
 	    do gpg --batch --delete-keys --yes $$key; \
