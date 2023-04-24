@@ -30,23 +30,13 @@ install:	## Import my signing keys
 	    keys/active/work \
 	    keys/retired
 
-.PHONY: crypt
-crypt:	## Import my encryption keys
-	./scripts/import.sh keys/encrypt
-
-
 .PHONY: sign
 sign:	## Locally sign my keys
-	./scripts/sign.sh keys/active keys/encrypt keys/retired
-
+	./scripts/sign.sh keys/active keys/retired
 
 .PHONY: uninstall
 uninstall:	## Remove signing keys
 	./scripts/delete.sh keys/active keys/retired
-
-.PHONY: rmcrypt
-rmcrypt:	## Remove encryption keys
-	./scripts/delete.sh keys/encrypt
 
 
 .PHONY: github/install

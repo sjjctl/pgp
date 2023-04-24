@@ -56,13 +56,6 @@ They can be removed just as easily.
     curl https://github.com/sjjctl.gpg | gpg | grep '^ ' | gpg --batch --delete-keys --yes
     curl https://github.com/gamesguru.gpg | gpg | grep '^ ' | gpg --batch --delete-keys --yes
 
-You can also add my **encryption** keys.
-
-.. code-block:: bash
-
-    make crypt
-    make rmcrypt  # to remove
-
 Verifying
 =========
 
@@ -101,7 +94,6 @@ Public keys can be easily removed from your keyring.
 .. code-block:: bash
 
     make uninstall
-    make rmcrypt
 
 Generating Your own PGP keys
 ----------------------------
