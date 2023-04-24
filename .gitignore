@@ -9,3 +9,5 @@
 tmp/
 batch-cmds
 *.pub
+output.log
+
