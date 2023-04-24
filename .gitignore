@@ -6,5 +6,6 @@
 
 
 # our files
+tmp/
 batch-cmds
 *.pub
