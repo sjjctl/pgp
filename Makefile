@@ -23,12 +23,16 @@ list:	## List the keys in this repository
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Install, sign, & remove
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# TODO: shortcut to only install current keys? Organize retired keys by year of retirement?
 .PHONY: install
 install:	## Import my signing keys
 	./scripts/import.sh \
 	    keys/active/personal \
-	    keys/active/work \
+	    keys/active/work
+
+# TODO: Organize retired keys by year of retirement?
+.PHONY: install-retired
+install-retired:
+	./scripts/import.sh \
 	    keys/retired
 
 .PHONY: sign
