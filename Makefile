@@ -40,18 +40,18 @@ uninstall:	## Remove signing keys
 
 
 .PHONY: github/install
-github/install:
+github/install:	## Install my keys (based on GitHub GPG)
 	# Import GitHub web-flow signing key
 	curl https://github.com/web-flow.gpg | gpg --import
 	# Import my keys
 	curl https://github.com/sjjctl.gpg | gpg --import
 	curl https://github.com/gamesguru.gpg | gpg --import
 
-KEYS_WORK_GH_RM ?= $(shell curl https://github.com/sjjctl.gpg | gpg | grep '^ ')
-KEYS_HOME_GH_RM ?= $(shell curl https://github.com/gamesguru.gpg | gpg | grep '^ ')
+KEYS_WORK_GH_RM ?= $(shell curl https://github.com/sjjctl.gpg | gpg --import --dry-run --import-options show-only | grep '^ ')
+KEYS_HOME_GH_RM ?= $(shell curl https://github.com/gamesguru.gpg | gpg --import --dry-run --import-options show-only | grep '^ ')
 
 .PHONY: github/uninstall
-github/uninstall:
+github/uninstall:	## Uninstall my keys (based on GitHub GPG)
 	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	# Remove work keys
 	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
