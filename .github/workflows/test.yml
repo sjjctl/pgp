@@ -17,10 +17,7 @@ jobs:
           submodules: recursive
 
       - name: Import Github web-flow Key
-        run: |
-          curl https://github.com/web-flow.gpg | gpg --import
-          # gpg --lsign-key 4AEE18F83AFDEB23
-
+        run: curl https://github.com/web-flow.gpg | gpg --import
 
       # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       # Test (local GPG)
@@ -33,7 +30,7 @@ jobs:
           [ $SUP_SIGS = 0 ]
 
       - name: Install (local)
-        run: make install install-retired
+        run: make install retired
 
       - name: Install (GitHub GPG) [Check for matching signatures]
         run: make github/install
