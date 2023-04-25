@@ -53,14 +53,20 @@ sign:	## Locally sign my keys
 	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	# Sign all keys
 	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	./scripts/sign.sh keys/active keys/retired
+	./scripts/sign.sh \
+	    keys/active \
+	    keys/deprecated \
+	    keys/retired
 
 .PHONY: uninstall
 uninstall:	## Remove signing keys
 	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	# Remove all keys
 	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	./scripts/delete.sh keys/active keys/retired
+	./scripts/delete.sh \
+	    keys/active \
+	    keys/deprecated \
+	    keys/retired
 
 
 .PHONY: github/install
