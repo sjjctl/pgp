@@ -34,6 +34,7 @@ used to sign web commits.
 
     curl https://github.com/web-flow.gpg | gpg --import
     gpg --lsign-key 4AEE18F83AFDEB23
+    gpg --lsign-key B5690EEEBB952194
 
 Import my **signing keys** to your keyring, and sign them as trusted.
 
