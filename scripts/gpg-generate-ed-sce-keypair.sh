@@ -5,10 +5,10 @@ cat <<EOT >batch-cmds
 # %no-protection
 Key-Type: EDDSA
 Key-Curve: ed25519
-# Key-Usage: sign,certify
+Key-Usage: sign
 Subkey-Type: ECDH
 Subkey-Curve: cv25519
-# Subkey-Usage: encrypt
+Subkey-Usage: encrypt
 Name-Real: ???
 Name-Comment: ???
 Name-Email: ???
