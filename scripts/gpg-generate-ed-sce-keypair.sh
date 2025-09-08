@@ -2,7 +2,7 @@
 
 cat <<EOT >batch-cmds
 %echo Generating an ed25519/cv25519 signing and encryption key-pair
-%no-protection
+# %no-protection
 Key-Type: EDDSA
 Key-Curve: ed25519
 # Key-Usage: sign,certify
