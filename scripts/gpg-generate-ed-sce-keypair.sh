@@ -6,9 +6,9 @@ cat <<EOT >batch-cmds
 Key-Type: EDDSA
 Key-Curve: ed25519
 Key-Usage: sign
-Subkey-Type: ECDH
-Subkey-Curve: cv25519
-Subkey-Usage: encrypt
+# Subkey-Type: ECDH
+# Subkey-Curve: cv25519
+# Subkey-Usage: encrypt
 Name-Real: ???
 Name-Comment: ???
 Name-Email: ???
