@@ -6,6 +6,11 @@ cd "$(dirname "$0")"
 function check_matchnumber() {
 
 	if [ "$#" -gt $1 ]; then
+
+		for a in "$@"; do
+			test "$a" || return
+		done
+
 		echo "Matched spec! DONE!"
 		exit
 	fi
@@ -25,9 +30,9 @@ while true; do
 	# -- END SPEC --
 
 	# All three start with at least four numbers
-	MATCH_1="$(echo "$KEY_OUTPUT" | grep 'ed25519/[0-9]\{4\}$' | cut -c 1-16)"
-	MATCH_2="$(echo "$KEY_OUTPUT" | grep '^      E[A-Z,0-9]\{39\}$' | cut -c 1-16)"
-	MATCH_3="$(echo "$KEY_OUTPUT" | grep 'cv25519/E' | cut -c 1-16)"
+	MATCH_1="$(echo "$KEY_OUTPUT" | grep 'ed25519/[0-9]\{4\}' | awk '{print $2}')"
+	MATCH_2="$(echo "$KEY_OUTPUT" | grep '^      E[A-Z,0-9]\{39\}$' | cut -c 7-16)"
+	MATCH_3="$(echo "$KEY_OUTPUT" | grep 'cv25519/E' | awk '{print $2}')"
 	set -x
 	check_matchnumber 3 "$MATCH_1" "$MATCH_2" "$MATCH_3"
 	set +x
