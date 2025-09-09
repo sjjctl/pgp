@@ -30,7 +30,7 @@ while true; do
 	# -- END SPEC --
 
 	# All three start with at least four numbers
-	MATCH_1="$(echo "$KEY_OUTPUT" | grep 'ed25519/[0-9]\{4\}' | awk '{print $2}')"
+	MATCH_1="$(echo "$KEY_OUTPUT" | grep 'ed25519/E' | awk '{print $2}')"
 	MATCH_2="$(echo "$KEY_OUTPUT" | grep '^      E[A-Z,0-9]\{39\}$' | cut -c 7-16)"
 	MATCH_3="$(echo "$KEY_OUTPUT" | grep 'cv25519/E' | awk '{print $2}')"
 	set -x
