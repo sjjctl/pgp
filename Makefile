@@ -28,13 +28,13 @@ install:	## Import my current signing keys
 	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	# Import current keys
 	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	./scripts/import.sh \
+	./scripts/_import.sh \
 	    keys/active/personal \
 	    keys/active/work
 	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	# Import deprecated  keys
 	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	./scripts/import.sh \
+	./scripts/_import.sh \
 	    keys/deprecated/personal \
 	    keys/deprecated/work
 
@@ -44,7 +44,7 @@ retired:	## Install my retired signing keys
 	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	# Import retired keys
 	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	./scripts/import.sh \
+	./scripts/_import.sh \
 	    keys/retired/personal \
 	    keys/retired/work
 
@@ -53,7 +53,7 @@ sign:	## Locally sign my keys
 	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	# Sign all keys
 	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	./scripts/sign.sh \
+	./scripts/_sign.sh \
 	    keys/active \
 	    keys/deprecated \
 	    keys/retired
@@ -63,7 +63,7 @@ uninstall:	## Remove signing keys
 	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	# Remove all keys
 	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	./scripts/delete.sh \
+	./scripts/_delete.sh \
 	    keys/active \
 	    keys/deprecated \
 	    keys/retired
