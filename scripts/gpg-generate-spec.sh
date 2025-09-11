@@ -3,11 +3,13 @@
 # Change to script's directory
 cd "$(dirname "$0")"
 
+# Function definitions
 function check_matchnumber() {
 
 	if [ "$#" -gt $1 ]; then
+		echo Matches: "${@:2}"
 
-		for a in "$@"; do
+		for a in "${@:2}"; do
 			test "$a" || return
 		done
 
@@ -16,30 +18,30 @@ function check_matchnumber() {
 	fi
 }
 
+# Main loop
 while true; do
 	KEY_OUTPUT=$(./gpg-generate-ed-sce-keypair.sh)
 	sleep 0.1
 
-	# SPEC: All three (fpr, key_id, and subkey_id) start with a given letter, i.e., B
-	# L=C
-	# MATCH_1="$(echo "$KEY_OUTPUT" | grep "ed25519/$L" | awk '{print $2}')"
-	# MATCH_2="$(echo "$KEY_OUTPUT" | grep "^      $L[A-Z,0-9]\{39\}$" | cut -c 7-16)"
-	# MATCH_3="$(echo "$KEY_OUTPUT" | grep "cv25519/$L" | awk '{print $2}')"
-	# set -x
-	# check_matchnumber 3 "$MATCH_1" "$MATCH_2" "$MATCH_3"
-	# set +x
+	# SPEC: All four (key_id & fpr, and subkey_id & subkey_fpr) start with a given letter, i.e., B
+	L=E
+	MATCH_1="$(echo "$KEY_OUTPUT" | grep "ed25519/$L" | awk '{print $2}')"
+	MATCH_2="$(echo "$KEY_OUTPUT" | grep -m1 "^      $L[A-Z,0-9]\{39\}$" | cut -c 7-16)"
+	MATCH_3="$(echo "$KEY_OUTPUT" | grep "cv25519/$L" | awk '{print $2}')"
+	MATCH_4="$(echo "$KEY_OUTPUT" | grep -m2 "^      $L[A-Z,0-9]\{39\}$" | tail -n1 | cut -c 7-16)"
+	check_matchnumber 4 "$MATCH_1" "$MATCH_2" "$MATCH_3" "$MATCH_4"
 	# -- END SPEC --
 
 	# SPEC: All three start with at least four numbers
 	# -- END SPEC --
 
 	# SPEC: Only one key (fpr + id) to compare
-	L=B
-	MATCH_1="$(echo "$KEY_OUTPUT" | grep "ed25519/$L" | awk '{print $2}')"
-	MATCH_2="$(echo "$KEY_OUTPUT" | grep "^      $L[A-Z,0-9]\{39\}$" | cut -c 7-16)"
-	set -x
-	check_matchnumber 2 "$MATCH_1" "$MATCH_2"
-	set +x
+	# L=B
+	# MATCH_1="$(echo "$KEY_OUTPUT" | grep "ed25519/$L" | awk '{print $2}')"
+	# MATCH_2="$(echo "$KEY_OUTPUT" | grep "^      $L[A-Z,0-9]\{39\}$" | cut -c 7-16)"
+	# set -x
+	# check_matchnumber 2 "$MATCH_1" "$MATCH_2"
+	# set +x
 	# -- END SPEC --
 
 done

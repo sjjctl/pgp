@@ -1,14 +1,14 @@
 #!/bin/bash
 
 cat <<EOT >batch-cmds
-%echo Generating an ed25519/cv25519 signing and encryption key-pair
+# %echo Generating an ed25519/cv25519 signing and encryption key-pair
 %no-protection
 Key-Type: EDDSA
 Key-Curve: ed25519
 Key-Usage: sign
-# Subkey-Type: ECDH
-# Subkey-Curve: cv25519
-# Subkey-Usage: encrypt
+Subkey-Type: ECDH
+Subkey-Curve: cv25519
+Subkey-Usage: encrypt
 Name-Real: ???
 Name-Comment: ???
 Name-Email: ???
@@ -22,4 +22,4 @@ Passphrase: ???
 EOT
 
 gpg --batch --gen-key batch-cmds
-gpg --show-key --keyid-format long ed-sce-keypair.pub
+gpg --show-key --keyid-format long --with-subkey-fingerprints ed-sce-keypair.pub
