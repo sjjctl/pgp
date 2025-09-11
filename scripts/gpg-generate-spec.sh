@@ -24,7 +24,7 @@ while true; do
 	sleep 0.1
 
 	# SPEC: All four (key_id & fpr, and subkey_id & subkey_fpr) start with a given letter, i.e., B
-	L=A
+	L=F
 	MATCH_1="$(echo "$KEY_OUTPUT" | grep -m1 "ed25519/$L" | awk '{print $2}')"
 	MATCH_2="$(echo "$KEY_OUTPUT" | grep -m1 "$L[A-Z,0-9]\{39\}$" | tail -n1 | cut -c 7-18)"
 	MATCH_3="$(echo "$KEY_OUTPUT" | grep -m1 "cv25519/$L" | awk '{print $2}')"
